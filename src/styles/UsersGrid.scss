@@ -1,0 +1,33 @@
+.users-wrapper {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+}
+
+.title-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: #645959;
+}
+
+.title-item {
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  color: #fff;
+}
+
+.users-container {
+  > :nth-child(even) {
+    background-color: #ccc;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+}

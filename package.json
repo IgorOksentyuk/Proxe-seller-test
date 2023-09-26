@@ -4,7 +4,9 @@
   "description": "A sample React app",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --mode development"
+    "start": "webpack serve --mode development",
+    "build": "npx webpack --mode production",
+    "deploy": "npx gh-pages -d dist"
   },
   "dependencies": {
     "classnames": "^2.3.2",

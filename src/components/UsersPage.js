@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getUsers } from "../api/users";
-import { UsersTable } from "./UsersTable";
+import { UsersGrid } from "./UsersGrid";
 import { Loader } from "./Loader";
 
 export const UsersPage = () => {
@@ -45,6 +45,7 @@ export const UsersPage = () => {
         placeholder="Search by username.."
         value={query}
         onChange={handleQueryChange}
+        className="input"
       />
 
       <div>
@@ -55,7 +56,7 @@ export const UsersPage = () => {
         )}
 
         {!error && (
-          <UsersTable
+          <UsersGrid
             users={getFilteredUsers()}
             loading={loading}
           />

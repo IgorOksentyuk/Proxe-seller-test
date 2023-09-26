@@ -1,25 +1,23 @@
 .user {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 
-  &__name {
-    padding-left: 70px;
-    transition: transform ease 0.3s;
-    align-self: center;
-    text-decoration: none;
+  > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #000;
     color: #000;
   }
 
-  &__name,
-  p {
-    width: 25%;
+  &__name {
+    text-decoration: none;
+    transition: transform ease 0.3s;
   }
 
   &__name:hover {
     transform: scale(1.08);
+    border-radius: 8px;
   }
-}
-
-tr.wrapper:nth-child(odd) .user {
-  background-color: #bea7a7;
 }

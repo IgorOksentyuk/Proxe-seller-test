@@ -3,18 +3,17 @@ import { Link } from "react-router-dom";
 
 export const User = ({ user }) => {
   return (
-    <tr className="wrapper">
-      <td>
-        <Link
-          to={`/users/${user.id}`}
-          className="user__name"
-        >
-          {user.name}
-        </Link>
-      </td>
-      <td>{user.username}</td>
-      <td>{user.email}</td>
-      <td>{user.address.city}</td>
-    </tr>
+    <div className="user">
+      <Link
+        to={`/users/${user.id}`}
+        className="user__name"
+      >
+        {user.name}
+      </Link>
+
+      <div className="user__username">{user.username}</div>
+      <div className="user__email">{user.email}</div>
+      <div className="user__city">{user.address.city}</div>
+    </div>
   );
 };
