@@ -1,0 +1,19 @@
+.table {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-around;
+  padding-block: 12px;
+  color: #fff;
+  background-color: #615050;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.title-item {
+  width: 25%;
+}

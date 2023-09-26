@@ -1,0 +1,25 @@
+.user {
+  display: flex;
+  justify-content: space-around;
+
+  &__name {
+    padding-left: 70px;
+    transition: transform ease 0.3s;
+    align-self: center;
+    text-decoration: none;
+    color: #000;
+  }
+
+  &__name,
+  p {
+    width: 25%;
+  }
+
+  &__name:hover {
+    transform: scale(1.08);
+  }
+}
+
+tr.wrapper:nth-child(odd) .user {
+  background-color: #bea7a7;
+}

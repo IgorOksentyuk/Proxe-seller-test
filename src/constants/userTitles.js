@@ -1,0 +1,1 @@
+export const userTitles = ['Name', 'Username', 'Email', 'City'];

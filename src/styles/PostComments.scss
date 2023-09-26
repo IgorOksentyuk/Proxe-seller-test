@@ -1,0 +1,30 @@
+.comments {
+  margin: 0;
+  padding: 0;
+}
+
+.comment {
+  margin-bottom: 20px;
+  list-style: none;
+  border-radius: 8px;
+  margin-inline: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+  &__name {
+    margin: 0;
+    padding: 8px;
+    background-color: #bea7a7;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  &__email {
+    margin: 0;
+    padding: 8px;
+  }
+
+  &__body {
+    margin: 0;
+    padding: 8px;
+  }
+}
