@@ -1,0 +1,25 @@
+.photos {
+  padding: 0;
+}
+
+.photo {
+  list-style: none;
+
+  &__title {
+    font-size: 16px;
+    margin: 0 0 20px;
+    text-align: center;
+  }
+
+  &__image {
+    width: 600px;
+    height: 600px;
+    border-radius: 4px;
+    margin-bottom: 50px;
+    transition: transform ease 0.3s;
+
+    &:hover {
+      transform: scale(1.04);
+    }
+  }
+}
