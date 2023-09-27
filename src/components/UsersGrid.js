@@ -16,7 +16,6 @@ export const UsersGrid = ({ users, loading }) => {
         ))}
       </div>
 
-
       <div className="users-container">
         {
           users.length > 0

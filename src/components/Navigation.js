@@ -37,5 +37,4 @@ export const Navigation = () => {
       </NavLink>
     </nav>
   );
-
 };
