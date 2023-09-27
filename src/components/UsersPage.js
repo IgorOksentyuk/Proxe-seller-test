@@ -8,21 +8,36 @@ export const UsersPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [query, setQuery] = useState("");
+  const [sortOrder, setSortOrder] = useState("asc");
 
   useEffect(() => {
     setLoading(true);
 
     getUsers()
-      .then(setUsers)
+      .then((data => {
+        const sortedUsers = [...data].sort((a, b) => {
+          if (sortOrder === "asc") {
+            return a.username.localeCompare(b.username);
+          } else {
+            return b.username.localeCompare(a.username);
+          }
+        });
+
+        setUsers(sortedUsers);
+      }))
       .catch(error => {
         setError(true);
         console.error('Error while fetching users:', error);
       })
       .finally(() => setLoading(false));
-  }, []);
+  }, [sortOrder]);
 
   const handleQueryChange = (event) => {
     setQuery(event.target.value);
+  };
+
+  const handleSortChange = (event) => {
+    setSortOrder(event.target.value);
   };
 
   const getFilteredUsers = () => {
@@ -40,13 +55,24 @@ export const UsersPage = () => {
     <>
       <h1 className="title">Users Page</h1>
 
-      <input
-        type="text"
-        placeholder="Search by username.."
-        value={query}
-        onChange={handleQueryChange}
-        className="input"
-      />
+      <div className="wrapper">
+        <input
+          type="text"
+          placeholder="Search by username.."
+          value={query}
+          onChange={handleQueryChange}
+          className="input"
+        />
+
+        <select
+          value={sortOrder}
+          onChange={handleSortChange}
+          className="select"
+        >
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </div>
 
       <div>
         {error && (

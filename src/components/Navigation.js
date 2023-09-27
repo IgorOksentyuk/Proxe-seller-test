@@ -7,24 +7,33 @@ export const Navigation = () => {
 
   return (
     <nav className="navigation">
-      <NavLink
-        to={`/users/${id}/posts`}
-        className={`
+      <div className="navigation__container">
+        <NavLink
+          to={`/users/${id}/posts`}
+          className={`
           navigation__item 
           ${!location.pathname.includes("albums") ? "active" : ""}`
-        }
-      >
-        Posts
-      </NavLink>
+          }
+        >
+          Posts
+        </NavLink>
 
-      <NavLink
-        to={`/users/${id}/albums`}
-        className={`
+        <NavLink
+          to={`/users/${id}/albums`}
+          className={`
           navigation__item 
           ${location.pathname.includes("albums") ? "active" : ""}`
-        }
+          }
+        >
+          Albums
+        </NavLink>
+      </div>
+
+      <NavLink
+        to={`/users`}
+        className="navigation__button"
       >
-        Albums
+        Go home
       </NavLink>
     </nav>
   );
