@@ -5,7 +5,7 @@ export const User = ({ user }) => {
   return (
     <div className="user">
       <Link
-        to={`/users/${user.id}`}
+        to={`/users/${user.id}/posts`}
         className="user__name"
       >
         {user.name}

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+
 import { getUsers } from "../api/users";
 import { UsersGrid } from "./UsersGrid";
 import { Loader } from "./Loader";
@@ -7,11 +9,26 @@ export const UsersPage = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [query, setQuery] = useState("");
-  const [sortOrder, setSortOrder] = useState("asc");
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const initialQuery = new URLSearchParams(location.search)
+    .get("query") || "";
+  const [query, setQuery] = useState(initialQuery);
+
+  const initialSortOrder = new URLSearchParams(location.search)
+    .get("sortBy") || "";
+  const [sortOrder, setSortOrder] = useState(initialSortOrder);
 
   useEffect(() => {
     setLoading(true);
+
+    const queryParams = new URLSearchParams(location.search);
+    queryParams.set("query", query);
+    queryParams.set("sortBy", sortOrder);
+
+    navigate(`?${queryParams.toString()}`);
 
     getUsers()
       .then((data => {
@@ -30,7 +47,7 @@ export const UsersPage = () => {
         console.error('Error while fetching users:', error);
       })
       .finally(() => setLoading(false));
-  }, [sortOrder]);
+  }, [sortOrder, query, navigate, location.search]);
 
   const handleQueryChange = (event) => {
     setQuery(event.target.value);
@@ -51,6 +68,8 @@ export const UsersPage = () => {
     );
   };
 
+  console.log(query);
+
   return (
     <>
       <h1 className="title">Users Page</h1>
@@ -69,8 +88,8 @@ export const UsersPage = () => {
           onChange={handleSortChange}
           className="select"
         >
-          <option value="asc">Ascending</option>
           <option value="desc">Descending</option>
+          <option value="asc">Ascending</option>
         </select>
       </div>
 
